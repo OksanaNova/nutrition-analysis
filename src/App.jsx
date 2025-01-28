@@ -26,20 +26,27 @@ function App() {
       body: JSON.stringify({ ingr: ingr })
     })
 
+    // let result = await response.json();
+    // console.log(result)
+
     if(response.ok) {
       setStateLoader(false);
       const data = await response.json();
+      console.log(data)
       setMyNutrition(data);
+      console.log(Object.values(data))
     } else {
       setStateLoader(false);
       alert('ingredients entered incorrectly')
     }
   }
 
+
+
   useEffect(() => {
-    let ingr = ['avocado'];
+    let ingr = ['1 avocado'];
     fetchData(ingr)
-  })
+  }, [])
 
 
  
