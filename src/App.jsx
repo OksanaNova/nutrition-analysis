@@ -2,12 +2,11 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 import LoaderPage from './LoaderPage';
+import Nutrition from './Nutrition';
 
 function App() {
 
-  // https://api.edamam.com/api/nutrition-data?app_id=1f7bf3d0&app_key=%20c96484924128aeb3cec27d734466aae1&nutrition-type=cooking&ingr=avocado
-
-  const [myNutrition, setMyNutrition] = useState();
+  // const [myNutrition, setMyNutrition] = useState();
   const [stateLoader, setStateLoader] = useState(false);
 
   const MY_KEY = 'c96484924128aeb3cec27d734466aae1';
@@ -33,15 +32,13 @@ function App() {
       setStateLoader(false);
       const data = await response.json();
       console.log(data)
-      setMyNutrition(data);
-      console.log(Object.values(data))
+      // setMyNutrition(data);
+      // console.log(Object.values(data))
     } else {
       setStateLoader(false);
       alert('ingredients entered incorrectly')
     }
   }
-
-
 
   useEffect(() => {
     let ingr = ['1 avocado'];
@@ -49,17 +46,25 @@ function App() {
   }, [])
 
 
- 
-
-
-
-
-
 
 
   return (
     <>
     {stateLoader && <LoaderPage />}
+
+    <div>
+      <h1>Nutrition Analysis</h1>
+      <h4>Enter an ingredient list list for what you are cooking, like "1 cup rice, 10 oz chickpeas", etc.</h4>
+    </div>
+
+    <form>
+      <input placeholder='Type your ingridients..' />
+      <button>search</button>
+    </form>
+
+    <Nutrition />
+
+
 
     
 
