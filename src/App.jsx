@@ -6,11 +6,17 @@ import Nutrition from './Nutrition';
 
 function App() {
 
-  // const [myNutrition, setMyNutrition] = useState();
+  const [myNutrition, setMyNutrition] = useState();
+
   const [stateLoader, setStateLoader] = useState(false);
 
-  const MY_KEY = 'c96484924128aeb3cec27d734466aae1';
-  const MY_ID = '1f7bf3d0';
+  const [userSearch, setUserSearch] = useState('');
+
+  const [wordSubmitted, setWordSubmitted] = useState('');
+
+
+  const MY_KEY = '22c47ce5975fa1e56c78741144731443';
+  const MY_ID = 'eec9b69c';
   const MY_URL = 'https://api.edamam.com/api/nutrition-details';
 
   const fetchData = async (ingr) => {
@@ -25,15 +31,11 @@ function App() {
       body: JSON.stringify({ ingr: ingr })
     })
 
-    // let result = await response.json();
-    // console.log(result)
-
     if(response.ok) {
       setStateLoader(false);
       const data = await response.json();
-      console.log(data)
-      // setMyNutrition(data);
-      // console.log(Object.values(data))
+      console.log('data', data)
+      setMyNutrition(data);
     } else {
       setStateLoader(false);
       alert('ingredients entered incorrectly')
@@ -41,10 +43,21 @@ function App() {
   }
 
   useEffect(() => {
-    let ingr = ['1 avocado'];
-    fetchData(ingr)
-  }, [])
+    if (wordSubmitted !== '') {
+      let ingr = wordSubmitted.split(/[,,;,\n,\r]/);
+      fetchData(ingr);
+    }
+  }, [wordSubmitted])
 
+      const nutritionSearch = (e) => {
+        // console.log('nutritionSearch', e.target.value)
+        setUserSearch(e.target.value)
+      }
+
+      const finalSearch = (e) => {
+        e.preventDefault();
+        setWordSubmitted(userSearch)
+      }
 
 
 
@@ -57,8 +70,11 @@ function App() {
       <h4>Enter an ingredient list list for what you are cooking, like "1 cup rice, 10 oz chickpeas", etc.</h4>
     </div>
 
-    <form>
-      <input placeholder='Type your ingridients..' />
+    <form onSubmit={finalSearch}>
+      <input 
+      placeholder='Type your ingridients..'
+      onChange={nutritionSearch}
+      value={userSearch} />
       <button>search</button>
     </form>
 
