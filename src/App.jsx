@@ -34,7 +34,7 @@ function App() {
     if(response.ok) {
       setStateLoader(false);
       const data = await response.json();
-      console.log('data', data)
+      // console.log('data', data)
       setMyNutrition(data);
     } else {
       setStateLoader(false);
@@ -59,6 +59,8 @@ function App() {
         setWordSubmitted(userSearch)
       }
 
+      // console.log('my', myNutrition)
+
 
 
   return (
@@ -67,7 +69,7 @@ function App() {
 
     <div>
       <h1>Nutrition Analysis</h1>
-      <h4>Enter an ingredient list list for what you are cooking, like "1 cup rice, 10 oz chickpeas", etc.</h4>
+      <h4>Enter an ingredient list for what you are cooking, like "1 cup rice, 10 oz chickpeas", etc.</h4>
     </div>
 
     <form onSubmit={finalSearch}>
@@ -78,7 +80,7 @@ function App() {
       <button>search</button>
     </form>
 
-    <Nutrition />
+    { myNutrition && <Nutrition myNutrition={myNutrition} />}
 
 
 

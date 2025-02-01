@@ -1,7 +1,15 @@
-function Nutrition() {
+import TotalNutrients from "./TotalNutrients";
+
+function Nutrition( {myNutrition} ) {
+
+
     return (
         <div>
-            <p>test</p>
+            <p>{myNutrition.calories} kcal</p>
+
+            <TotalNutrients totalNutrients={myNutrition.totalNutrients} />
+
+            
         </div>
     )
 }
