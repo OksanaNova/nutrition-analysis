@@ -1,4 +1,3 @@
-
 .lds-spinner,
 .lds-spinner div,
 .lds-spinner div:after {
@@ -106,5 +105,49 @@
   100% {
     opacity: 0;
   }
+}
+
+.header, input, button {
+  font-family: "42dot Sans", serif;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+h1, p {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+input {
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 0 10px;
+  /* width: 80%; */
+  flex: 5;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: transparent;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+button:hover {
+  cursor: pointer;
 }
 

@@ -34,8 +34,8 @@ function App() {
     if(response.ok) {
       setStateLoader(false);
       const data = await response.json();
-      // console.log('data', data)
       setMyNutrition(data);
+      // console.log(data)
     } else {
       setStateLoader(false);
       alert('ingredients entered incorrectly')
@@ -50,7 +50,6 @@ function App() {
   }, [wordSubmitted])
 
       const nutritionSearch = (e) => {
-        // console.log('nutritionSearch', e.target.value)
         setUserSearch(e.target.value)
       }
 
@@ -59,17 +58,13 @@ function App() {
         setWordSubmitted(userSearch)
       }
 
-      // console.log('my', myNutrition)
-
-
-
   return (
     <>
     {stateLoader && <LoaderPage />}
 
-    <div>
+    <div className='header'>
       <h1>Nutrition Analysis</h1>
-      <h4>Enter an ingredient list for what you are cooking, like "1 cup rice, 10 oz chickpeas", etc.</h4>
+      <p>Enter an ingredient list for what you are cooking, like "1 cup rice, 10 oz chickpeas", etc.</p>
     </div>
 
     <form onSubmit={finalSearch}>
@@ -81,10 +76,6 @@ function App() {
     </form>
 
     { myNutrition && <Nutrition myNutrition={myNutrition} />}
-
-
-
-    
 
     </>
   )
