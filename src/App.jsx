@@ -59,7 +59,7 @@ function App() {
       }
 
   return (
-    <>
+    <div className='main-container'>
     {stateLoader && <LoaderPage />}
 
     <div className='header'>
@@ -77,7 +77,7 @@ function App() {
 
     { myNutrition && <Nutrition myNutrition={myNutrition} />}
 
-    </>
+    </div>
   )
 }
 

@@ -4,7 +4,7 @@ function Nutrition( {myNutrition} ) {
 
     return (
         <div>
-            <p>{myNutrition.calories} kcal</p>
+            <p className="calories">{myNutrition.calories} kcal</p>
 
             <TotalNutrients totalNutrients={myNutrition.totalNutrients} />
 
