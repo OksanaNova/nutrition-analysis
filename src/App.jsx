@@ -33,6 +33,7 @@ function App() {
       const data = await response.json();
       setMyNutrition(data);
     } else {
+      setMyNutrition('');
       setStateLoader(false);
       Swal.fire("Ingredients entered incorrectly!");
     }
