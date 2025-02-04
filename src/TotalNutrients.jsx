@@ -3,9 +3,7 @@ function TotalNutrients ( { totalNutrients } ) {
     return (
         <div className="container">
             {Object.values(totalNutrients).map((element, index) => {
-                const label = element.label;
-                const quantity = element.quantity;
-                const unit = element.unit;
+                const { label, quantity, unit } = element;
                 return (
                         <div key={index} className="total-nutrients">
                             <p className="label"><b>{label}:</b></p>
