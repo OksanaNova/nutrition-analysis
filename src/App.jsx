@@ -8,13 +8,9 @@ import Swal from 'sweetalert2';
 function App() {
 
   const [myNutrition, setMyNutrition] = useState();
-
   const [stateLoader, setStateLoader] = useState(false);
-
   const [userSearch, setUserSearch] = useState('');
-
   const [wordSubmitted, setWordSubmitted] = useState('');
-
 
   const MY_KEY = '22c47ce5975fa1e56c78741144731443';
   const MY_ID = 'eec9b69c';
@@ -36,11 +32,9 @@ function App() {
       setStateLoader(false);
       const data = await response.json();
       setMyNutrition(data);
-      // console.log(data)
     } else {
       setStateLoader(false);
       Swal.fire("Ingredients entered incorrectly!");
-      // alert('ingredients entered incorrectly')
     }
   }
 
