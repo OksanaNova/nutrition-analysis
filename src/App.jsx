@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import LoaderPage from './LoaderPage';
 import Nutrition from './Nutrition';
+import Swal from 'sweetalert2';
 
 function App() {
 
@@ -38,7 +39,8 @@ function App() {
       // console.log(data)
     } else {
       setStateLoader(false);
-      alert('ingredients entered incorrectly')
+      Swal.fire("Ingredients entered incorrectly!");
+      // alert('ingredients entered incorrectly')
     }
   }
 
